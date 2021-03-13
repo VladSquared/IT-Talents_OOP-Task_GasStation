@@ -67,7 +67,7 @@ public class Car extends Thread {
 
     public void goBackToRoad(){
         gasStation.removeCarFromPump(indexPump);
-        System.out.println("Car " + this.id + "was removed from " + indexPump + ". The driver has left with " + getMoneyCash());
+        System.out.println("Car " + this.id + " was removed from " + indexPump + ". The driver has left with " + getMoneyCash());
     }
 
     public void payForPetrol(double amount) {

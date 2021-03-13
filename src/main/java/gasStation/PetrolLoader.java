@@ -15,7 +15,6 @@ class PetrolLoader extends Staff implements Runnable{
 
                 pump.getFirstCar().notifyToPay();
 
-                pump.setIsLoadingFuel(false);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

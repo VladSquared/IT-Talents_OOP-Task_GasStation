@@ -19,7 +19,7 @@ class FuelPump {
     synchronized void addCar(Car car) {
         cars.offer(car);
         System.out.println("A car was added to " + this.id + " intend to load " + car.getLoadedFuelLiters() +
-                ", money " + car.getMoneyCash() + " id " + car.getCarId());
+                ", money " + car.getMoneyCash() + ", car id " + car.getCarId());
     }
 
     Car getFirstCar(){

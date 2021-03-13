@@ -104,6 +104,7 @@ public class GasStation {
 
     void removeCarFromPump(int indexPump) {
         fuelPumps.get(indexPump).removeCarAfterPayment();
+        fuelPumps.get(indexPump).setIsLoadingFuel(false);
     }
 
     void addToLedger(int idPump, FuelType fuelType, double quantity, int loadingTimeSeconds){
