@@ -3,17 +3,18 @@ package gasStation;
 public class Car extends Thread {
     private GasStation gasStation;
     private int id;
+    int indexPump;
 
     static class Driver {
         private static double moneyCash;
-        private static double intentToLoadFuel;
+        private static double intentToLoadFuelLiters;
 
         public static double getMoneyCash() {
             return moneyCash;
         }
 
         public static double getIntentToLoadFuel() {
-            return intentToLoadFuel;
+            return intentToLoadFuelLiters;
         }
 
     }
@@ -28,7 +29,7 @@ public class Car extends Thread {
             throw new Exception("Not enough money!");
         }
         if (intentToLoadFuel >= 10 && intentToLoadFuel <= 40) {
-            Driver.intentToLoadFuel = intentToLoadFuel;
+            Driver.intentToLoadFuelLiters = intentToLoadFuel;
         } else {
             throw new Exception("Intend to load fuel not in range (10,40)");
         }
@@ -44,8 +45,8 @@ public class Car extends Thread {
         gasStation.acceptVehicle(this);
     }
 
-    public double getIntentToLoadFuel() {
-        return Driver.intentToLoadFuel;
+    public double getLoadedFuelLiters() {
+        return Driver.intentToLoadFuelLiters;
     }
 
     public double getMoneyCash() {
@@ -54,6 +55,23 @@ public class Car extends Thread {
 
     public int getCarId() {
         return id;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void notifyToPay() {
+        gasStation.payForFuel(this);
+    }
+
+    public void goBackToRoad(){
+        gasStation.removeCarFromPump(indexPump);
+        System.out.println("Car " + this.id + "was removed from " + indexPump + ". The driver has left with " + getMoneyCash());
+    }
+
+    public void payForPetrol(double amount) {
+        Driver.moneyCash -= amount;
     }
 
     @Override

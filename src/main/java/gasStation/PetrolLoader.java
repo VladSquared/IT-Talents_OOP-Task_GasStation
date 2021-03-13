@@ -11,7 +11,10 @@ class PetrolLoader extends Staff implements Runnable{
             FuelPump pump = this.gasStation.getCarToRefuel();
             try {
                 Thread.sleep(5000);
-                System.out.println("Car " + pump.checkForCar().getCarId() + " was filled up!");
+                System.out.println("Car " + pump.getFirstCar().getCarId() + " was filled up!");
+
+                pump.getFirstCar().notifyToPay();
+
                 pump.setIsLoadingFuel(false);
             } catch (InterruptedException e) {
                 e.printStackTrace();
