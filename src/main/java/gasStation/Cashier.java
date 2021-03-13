@@ -17,6 +17,7 @@ class Cashier extends Staff implements Runnable {
 
             gasStation.addToLedger(client.indexPump, client.getFuelType(), client.getLoadedFuelLiters(), 5);
 
+            GasStationDAO.addLedgerEntry(client.indexPump, client.getFuelType(), client.getLoadedFuelLiters(), 5);
 
             try {
                 Thread.sleep(5000);

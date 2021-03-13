@@ -1,4 +1,4 @@
-package db;
+package util;
 
 import com.google.gson.Gson;
 
